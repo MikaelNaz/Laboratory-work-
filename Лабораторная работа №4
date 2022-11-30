@@ -1,0 +1,33 @@
+# df.sort_values(by=['April'])
+# print(df.describe())
+# print(df.sort_values('April', ascending=True))
+
+
+
+
+
+
+
+
+
+# import numpy as np
+# import pandas as pd
+# import matplotlib.pyplot as plt
+#
+# plt.style.use('seaborn-v0_8')
+# anime = pd.read_csv('file.csv', index_col='ID')
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+# plt.style.use('_mpl-gallery')
+#
+# fig, ax = plt.subplots()
+# months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+# counts = [120303, 48404, 48264, 66071, 87159, 178245, 147911, 61412, 66382, 183471, 129326, 84027]
+# bar_labels = ['Aqua', 'Orange', 'Gray', 'Yellow', 'Blue', 'Green', 'Navy', 'Brown', 'DimGray', 'DarkGoldenrod', 'Teal', 'Olive']
+# bar_colors = ['Aqua', 'Orange', 'Gray', 'Yellow', 'Blue', 'Green', 'Navy', 'Brown', 'DimGray', 'DarkGoldenrod', 'Teal', 'Olive']
+# ax.bar(months, counts, label =months, color=bar_colors)
+# ax.set_ylabel('Количество зараженных')
+# ax.set_title('График заболеваемости Covid-19 в Москве за 2021год')
+# ax.legend(title='Месяцы')
+# plt.show()
