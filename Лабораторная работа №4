@@ -1,33 +1,48 @@
-# df.sort_values(by=['April'])
-# print(df.describe())
-# print(df.sort_values('April', ascending=True))
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import statsmodels.api as sm
+import scipy.stats.distributions as dist
 
-
-
-
-
-
-
-
-
-# import numpy as np
-# import pandas as pd
-# import matplotlib.pyplot as plt
-#
-# plt.style.use('seaborn-v0_8')
-# anime = pd.read_csv('file.csv', index_col='ID')
-
-# import matplotlib.pyplot as plt
-# import numpy as np
+# Задание №1
 # plt.style.use('_mpl-gallery')
-#
 # fig, ax = plt.subplots()
-# months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+# months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 # counts = [120303, 48404, 48264, 66071, 87159, 178245, 147911, 61412, 66382, 183471, 129326, 84027]
-# bar_labels = ['Aqua', 'Orange', 'Gray', 'Yellow', 'Blue', 'Green', 'Navy', 'Brown', 'DimGray', 'DarkGoldenrod', 'Teal', 'Olive']
 # bar_colors = ['Aqua', 'Orange', 'Gray', 'Yellow', 'Blue', 'Green', 'Navy', 'Brown', 'DimGray', 'DarkGoldenrod', 'Teal', 'Olive']
-# ax.bar(months, counts, label =months, color=bar_colors)
-# ax.set_ylabel('Количество зараженных')
-# ax.set_title('График заболеваемости Covid-19 в Москве за 2021год')
-# ax.legend(title='Месяцы')
+# ax.bar(months, counts, color=bar_colors)
+# ax.set_ylabel('Количество зараженных в тыс.')
+# ax.set_title('График заболеваемости Covid-19 в Москве за 2021 год')
 # plt.show()
+
+# Задание №2
+
+plt.style.use('seaborn-v0_8')
+df = pd.read_csv('datasett.csv', delimiter=';')
+df.head()
+# fig, ax = plt.subplots()
+# ax = sns.distplot(df.Price) Построение графика №1
+# ax.plot(df.Price) Построение графика №2
+# ax.set_ylabel('Price')
+# ax.set_title('График цен на недвижимость')
+# plt.show()
+
+std= df.Price.std() # Возвращает стандартное отклонение, меру разброса распределения элементов массива.
+n = len(df)
+se = std/np.sqrt(n)
+print('SE =', se)
+
+be = df.Price.mean() # Возвращает среднее значение элементов массива price
+he = 5000000 # Hypothesized estimatehe
+test_statistic = (be - he)/se
+print('Статистика теста составила:', test_statistic)
+
+pvalue = 2*(dist.norm.cdf(-np.abs(test_statistic)))
+print('Значение вероятности: ', pvalue)
+
+
+
+
+
+
